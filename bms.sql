@@ -99,3 +99,14 @@ INSERT INTO bookshow (date, time, theatre_id, movie_id)
  VALUES (7, 17, 30);
  INSERT INTO ticket (show_id, seat_number, price) 
  VALUES (15, 8, 10);
+
+
+/* Query */
+
+select bookshow.date, bookshow.time, movie.name, movie.language,movie.genre, theatre.name, ticket.price
+from bookshow
+Join movie ON bookshow.movie_id = movie.movie_id
+Join theatre ON bookshow.theatre_id = theatre.theatre_id
+join ticket ON bookshow.show_id = ticket.show_id
+where theatre.name = 'PVR Cinemas' and bookshow.date ='2022-03-08';
+
